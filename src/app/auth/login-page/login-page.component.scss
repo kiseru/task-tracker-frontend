@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  &__field {
+    margin-bottom: .75rem;
+  }
+
+  &__title {
+    text-align: center;
+  }
+}

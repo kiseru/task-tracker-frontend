@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-4">
+      <form [formGroup]="form" (submit)="submit()" class="login-form">
+        <h1 class="login-form__title">Войти</h1>
+
+        <mat-form-field class="login-form__field">
+          <input matInput type="text" placeholder="Логин" formControlName="username">
+          <mat-error *ngIf="username.errors?.required">Поле не должно быть пустым</mat-error>
+          <mat-error *ngIf="username.errors?.maxlength">
+            Максимум {{username.errors?.maxlength.requiredLength}} символов.
+            У вас {{username.errors?.maxlength.actualLength}} символов.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="login-form__field">
+          <input matInput type="password" placeholder="Пароль" formControlName="password">
+          <mat-error *ngIf="password.errors?.required">Поле не должно быть пустым</mat-error>
+          <mat-error *ngIf="password.errors?.maxlength">
+            Максимум {{password.errors?.maxlength.requiredLength}} символов.
+            У вас {{password.errors?.maxlength.actualLength}} символов.
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>
+
