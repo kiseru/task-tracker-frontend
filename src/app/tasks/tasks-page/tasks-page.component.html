@@ -2,9 +2,13 @@
   <span>Мои задачи</span>
 </mat-toolbar>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 col-md-3 col-lg-2">
+      <app-tasks-filter></app-tasks-filter>
+    </div>
+
+    <div class="col-12 col-md-9 col-lg-10">
       <table mat-table [dataSource]="tasks$ | async" class="tasks-table">
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Название</th>

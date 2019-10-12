@@ -16,7 +16,7 @@ export class TasksEffects {
 
   loadTasks$ = createEffect(() => this.actions$
     .pipe(ofType(tasksActions.loadTasks))
-    .pipe(switchMap(() => this.tasksService.getTasks()
+    .pipe(switchMap(action => this.tasksService.getTasks(action.filters)
       .pipe(map(tasks => tasksActions.loadTasksSuccess({ tasks })))
       .pipe(catchError(error => of(tasksActions.loadTasksFail({ error })))))));
 }

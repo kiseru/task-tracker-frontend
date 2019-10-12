@@ -24,3 +24,8 @@ export const taskPrioritiesCaption = {
   2: 'Низкий',
 };
 
+export interface TaskFilters {
+  priority: number;
+  status: number;
+}
+

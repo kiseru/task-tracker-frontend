@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { Task } from '../../entities/task';
+import { Task, TaskFilters } from '../../entities/task';
 
-export const loadTasks = createAction('[Tasks] Load Tasks');
+export const loadTasks = createAction('[Tasks] Load Tasks', props<{ filters?: Partial<TaskFilters> }>());
 
 export const loadTasksFail = createAction('[Tasks] Load Tasks Fail', props<{ error: any }>());
 

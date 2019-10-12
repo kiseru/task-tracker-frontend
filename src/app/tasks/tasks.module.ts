@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksPageComponent } from './tasks-page/tasks-page.component';
-import { MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatCardModule, MatSelectModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { TasksFilterComponent } from './tasks-filter/tasks-filter.component';
 
 
 @NgModule({
-  declarations: [TasksPageComponent],
+  declarations: [TasksPageComponent, TasksFilterComponent],
   imports: [
     CommonModule,
     TasksRoutingModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatSelectModule
   ]
 })
 export class TasksModule { }

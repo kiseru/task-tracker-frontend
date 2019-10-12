@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Task } from '../entities/task';
+import { Task, TaskFilters } from '../entities/task';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,13 @@ export class TasksService {
   ) {
   }
 
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.BASE_URL);
+  getTasks(taskFilters?: Partial<TaskFilters>): Observable<Task[]> {
+    let params = new HttpParams();
+    if (taskFilters) {
+      Object.entries(taskFilters)
+        .filter(([_, value]) => value !== null && value !== undefined)
+        .forEach(([key, value]) => params = params.set(key, value.toString()));
+    }
+    return this.http.get<Task[]>(this.BASE_URL, { params });
   }
 }

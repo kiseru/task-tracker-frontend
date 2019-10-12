@@ -30,7 +30,7 @@ export class TasksPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadTasks());
+    this.store.dispatch(loadTasks({}));
   }
 
   getStatusCaption(index: number): string {
