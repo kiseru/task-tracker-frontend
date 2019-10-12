@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiHostInterceptorService } from './interceptors/api-host-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHostInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     AuthService,
     CookieService,
   ],

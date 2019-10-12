@@ -13,8 +13,10 @@ export class AuthService {
   private readonly BASE_URL = 'auth/';
   private readonly AUTH_TOKEN_COOKIE_KEY = 'AuthToken';
 
-  constructor(private cookieService: CookieService,
-              private http: HttpClient) {
+  constructor(
+    private cookieService: CookieService,
+    private http: HttpClient,
+  ) {
   }
 
   login(loginForm: LoginForm): Observable<Token> {
@@ -27,5 +29,9 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return this.cookieService.check(this.AUTH_TOKEN_COOKIE_KEY);
+  }
+
+  getAuthToken(): string {
+    return this.cookieService.get(this.AUTH_TOKEN_COOKIE_KEY);
   }
 }
