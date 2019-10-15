@@ -22,6 +22,11 @@
           </mat-error>
         </mat-form-field>
 
+        <mat-error
+          *ngIf="authError$ | async"
+          class="login-form__error"
+        >Пользователя с таким логином и паролем не существует</mat-error>
+
         <button mat-raised-button color="primary">Войти</button>
       </form>
     </div>

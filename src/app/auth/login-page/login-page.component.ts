@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { State } from '../../store/state';
 import { login } from '../../store/auth/auth.actions';
+import { selectAuthError } from '../../store/auth/auth.selectors';
 
 @Component({
   selector: 'app-login-page',
@@ -14,6 +15,8 @@ export class LoginPageComponent implements OnInit {
     username: ['', [Validators.required, Validators.maxLength(12)]],
     password: ['', [Validators.required, Validators.maxLength(20)]],
   });
+
+  authError$ = this.store.select(selectAuthError);
 
   constructor(private fb: FormBuilder,
               private store: Store<State>) {

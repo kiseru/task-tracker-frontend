@@ -9,7 +9,8 @@
   display: flex;
   flex-direction: column;
 
-  &__field {
+  &__field,
+  &__error {
     margin-bottom: .75rem;
   }
 
