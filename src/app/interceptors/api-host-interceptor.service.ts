@@ -8,6 +8,6 @@ import { Observable } from 'rxjs';
 export class ApiHostInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req.clone({ url: `http://localhost:8000/${req.url}` }));
+    return next.handle(req.clone({ url: `http://83.220.170.90/${req.url}` }));
   }
 }
