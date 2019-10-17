@@ -17,7 +17,7 @@
           <mat-label>Приоритет</mat-label>
           <mat-select [(value)]="filters.priority" (selectionChange)="loadTasks()">
             <mat-option [value]="-1">Все</mat-option>
-            <mat-option *ngFor="let option of priorities" [value]="option.id">{{option.caption}}</mat-option>
+            <mat-option *ngFor="let priority of priorities" [value]="priority">{{priority | priority}}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -25,7 +25,7 @@
           <mat-label>Статус</mat-label>
           <mat-select [(value)]="filters.status" (selectionChange)="loadTasks()">
             <mat-option [value]="-1">Все</mat-option>
-            <mat-option *ngFor="let option of statuses" [value]="option.id">{{option.caption}}</mat-option>
+            <mat-option *ngFor="let status of statuses" [value]="status">{{status | status}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

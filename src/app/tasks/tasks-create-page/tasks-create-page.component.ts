@@ -20,11 +20,11 @@ export class TasksCreatePageComponent implements OnInit {
     priority: ['', [Validators.required]],
   });
 
-  readonly priorities = Object.entries(taskPrioritiesCaption)
-    .map(priority => ({ id: parseInt(priority[0], 10), caption: priority[1] }));
+  readonly priorities = Object.keys(taskPrioritiesCaption)
+    .map(key => +key);
 
-  readonly statuses = Object.entries(taskStatusesCaption)
-    .map(status => ({ id: parseInt(status[0], 10), caption: status[1] }));
+  readonly statuses = Object.keys(taskStatusesCaption)
+    .map(key => +key);
 
   constructor(
     private fb: FormBuilder,

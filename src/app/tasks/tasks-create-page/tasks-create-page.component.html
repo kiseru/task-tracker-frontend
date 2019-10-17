@@ -33,14 +33,14 @@
 
         <mat-form-field>
           <mat-select placeholder="Приоритет" formControlName="priority">
-            <mat-option *ngFor="let priority of priorities" [value]="priority.id">{{priority.caption}}</mat-option>
+            <mat-option *ngFor="let priority of priorities" [value]="priority">{{priority | priority}}</mat-option>
           </mat-select>
           <mat-error *ngIf="priority.errors?.required">Поле не должно быть пустым</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <mat-select placeholder="Статус" formControlName="status">
-            <mat-option *ngFor="let status of statuses" [value]="status.id">{{status.caption}}</mat-option>
+            <mat-option *ngFor="let status of statuses" [value]="status">{{status | status}}</mat-option>
           </mat-select>
           <mat-error *ngIf="status.errors?.required">Поле не должно быть пустым</mat-error>
         </mat-form-field>

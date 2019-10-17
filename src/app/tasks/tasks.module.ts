@@ -11,6 +11,7 @@ import { MatButtonModule, MatCardModule, MatInputModule, MatSelectModule, MatTab
 import { TaskPageComponent } from './task-page/task-page.component';
 import { TasksCreatePageComponent } from './tasks-create-page/tasks-create-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
+    SharedModule,
   ]
 })
 export class TasksModule { }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Task, taskPrioritiesCaption, taskStatusesCaption } from '../../entities/task';
+import { Task } from '../../entities/task';
 
 @Component({
   selector: 'app-tasks-table',
@@ -24,14 +24,6 @@ export class TasksTableComponent {
     'priority',
     'status'
   ];
-
-  getStatusCaption(index: number): string {
-    return taskStatusesCaption[index];
-  }
-
-  getPriorityCaption(index: number): string {
-    return taskPrioritiesCaption[index];
-  }
 
   get displayedColumns(): string[] {
     return this.isShortView ? this.shortDisplayColumns : this.fullDisplayedColumns;
