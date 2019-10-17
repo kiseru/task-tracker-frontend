@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title class="task__name">{{task.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="task__content">{{task.description}}</mat-card-content>
+  <mat-card-actions>
+    <div class="task__footer">
+      <small>Приоритет: {{getPriorityCaption(task.priority)}}</small>
+      <small>{{task.spent_time}}</small>
+    </div>
+  </mat-card-actions>
+</mat-card>

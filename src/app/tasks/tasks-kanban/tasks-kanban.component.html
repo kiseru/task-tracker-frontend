@@ -1,0 +1,60 @@
+<div class="column">
+  <div class="column__title">План</div>
+
+  <div
+    class="tasks"
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListConnectedTo]="[inProgressList, doneList]"
+    (cdkDropListDropped)="drop($event, 0)"
+  >
+    <app-task-card
+      *ngFor="let task of todoTasks"
+      [task]="task"
+      class="tasks__item"
+      cdkDrag
+      [cdkDragData]="task"
+    ></app-task-card>
+  </div>
+</div>
+
+
+<div class="column">
+  <div class="column__title">В процессе</div>
+
+  <div
+    class="tasks"
+    cdkDropList
+    #inProgressList="cdkDropList"
+    [cdkDropListConnectedTo]="[todoList, doneList]"
+    (cdkDropListDropped)="drop($event, 1)"
+  >
+    <app-task-card
+      *ngFor="let task of inProgressTasks"
+      [task]="task"
+      class="tasks__item"
+      cdkDrag
+      [cdkDragData]="task"
+    ></app-task-card>
+  </div>
+</div>
+
+<div class="column">
+  <div class="column__title">Готово</div>
+
+  <div
+    class="tasks"
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListConnectedTo]="[todoList, inProgressList]"
+    (cdkDropListDropped)="drop($event, 2)"
+  >
+    <app-task-card
+      *ngFor="let task of doneTasks"
+      [task]="task"
+      class="tasks__item"
+      cdkDrag
+      [cdkDragData]="task"
+    ></app-task-card>
+  </div>
+</div>

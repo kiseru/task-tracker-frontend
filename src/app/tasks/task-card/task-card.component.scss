@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.task {
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  padding: .5rem;
+
+  &__name {
+    font-size: 18px;
+    padding-bottom: .25rem;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    font-size: 14px;
+    opacity: .8;
+  }
+
+  &__footer {
+    padding-top: .25rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    opacity: .5;
+    text-align: right;
+  }
+}

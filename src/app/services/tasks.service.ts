@@ -24,4 +24,8 @@ export class TasksService {
     }
     return this.http.get<Task[]>(this.BASE_URL, { params });
   }
+
+  editTaskStatus(taskId: number, status: number): Observable<Task> {
+    return this.http.patch<Task>(`${this.BASE_URL}${taskId}/`, { status });
+  }
 }

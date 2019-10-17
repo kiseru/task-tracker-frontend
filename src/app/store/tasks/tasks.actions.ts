@@ -7,3 +7,9 @@ export const loadTasksFail = createAction('[Tasks] Load Tasks Fail', props<{ err
 
 export const loadTasksSuccess = createAction('[Tasks] Load Tasks Success', props<{ tasks: Task[] }>());
 
+export const editTaskStatus = createAction('[Tasks] Edit Task', props<{ taskId: number, status: number }>());
+
+export const editTaskStatusFail = createAction('[Tasks] Edit Task', props<{ error: any }>());
+
+export const editTaskStatusSuccess = createAction('[Tasks] Edit Task');
+
