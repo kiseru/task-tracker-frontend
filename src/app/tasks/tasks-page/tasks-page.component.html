@@ -1,11 +1,7 @@
-<mat-toolbar color="primary">
-  <span>Мои задачи</span>
-</mat-toolbar>
-
 <div class="container mt-3">
   <div class="row">
     <div class="col-3">
-      <div class="view-select">
+      <div class="bg-light d-flex flex-column pt-3 px-2 mb-2">
         <mat-form-field>
           <mat-label>Вид</mat-label>
           <mat-select [(value)]="viewType">
@@ -16,7 +12,7 @@
         </mat-form-field>
       </div>
 
-      <div class="tasks-filters">
+      <div class="bg-light d-flex flex-column pt-3 px-2">
         <mat-form-field>
           <mat-label>Приоритет</mat-label>
           <mat-select [(value)]="filters.priority" (selectionChange)="loadTasks()">
