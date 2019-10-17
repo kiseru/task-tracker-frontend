@@ -25,4 +25,10 @@ export class TasksEffects {
     .pipe(switchMap(action => this.tasksService.editTaskStatus(action.taskId, action.status)
       .pipe(map(() => tasksActions.editTaskStatusSuccess()))
       .pipe(catchError(error => of(tasksActions.editTaskStatusFail({ error })))))));
+
+  loadTask$ = createEffect(() => this.actions$
+    .pipe(ofType(tasksActions.loadTask))
+    .pipe(switchMap(action => this.tasksService.getTask(action.taskId)
+      .pipe(map(task => tasksActions.loadTaskSuccess({ task })))
+      .pipe(catchError(error => of(tasksActions.loadTaskFail({ error })))))));
 }

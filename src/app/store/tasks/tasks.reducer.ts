@@ -1,6 +1,16 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { initialState, TasksState } from './tasks.state';
-import { editTaskStatus, editTaskStatusFail, editTaskStatusSuccess, loadTasks, loadTasksFail, loadTasksSuccess } from './tasks.actions';
+import {
+  editTaskStatus,
+  editTaskStatusFail,
+  editTaskStatusSuccess,
+  loadTask,
+  loadTaskFail,
+  loadTasks,
+  loadTasksFail,
+  loadTasksSuccess,
+  loadTaskSuccess
+} from './tasks.actions';
 
 const tasksReducer = createReducer(
   initialState,
@@ -31,6 +41,20 @@ const tasksReducer = createReducer(
   on(editTaskStatusSuccess, (state) => ({
     ...state,
     isLoading: false,
+  })),
+  on(loadTask, (state) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(loadTaskFail, (state, { error }) => ({
+    ...state,
+    error,
+    isLoading: false,
+  })),
+  on(loadTaskSuccess, (state, { task }) => ({
+    ...state,
+    isLoading: false,
+    current: task,
   })),
 );
 

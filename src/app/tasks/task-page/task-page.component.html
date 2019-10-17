@@ -1,0 +1,17 @@
+<div class="container pt-3" *ngIf="task$ | async as task">
+  <div class="row">
+    <div class="col-9 d-flex flex-column">
+      <h1>{{task.name}}</h1>
+      <p>{{task.description}}</p>
+    </div>
+
+    <div class="col-3">
+      <div class="bg-light p-3 d-flex flex-column">
+        <small class="py-1">Планируемое время: {{task.estimation}}</small>
+        <small class="py-1">Затраченное время: {{task.spent_time}}</small>
+        <small class="py-1">Приоритет: {{getPriorityCaption(task.priority)}}</small>
+        <small class="py-1">Статус: {{getStatusCaption(task.status)}}</small>
+      </div>
+    </div>
+  </div>
+</div>

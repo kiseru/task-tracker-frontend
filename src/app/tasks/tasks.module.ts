@@ -8,6 +8,7 @@ import { TasksKanbanComponent } from './tasks-kanban/tasks-kanban.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatCardModule, MatSelectModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { TaskPageComponent } from './task-page/task-page.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MatCardModule, MatSelectModule, MatTableModule, MatToolbarModule } from
     TasksTableComponent,
     TasksKanbanComponent,
     TaskCardComponent,
+    TaskPageComponent,
   ],
   imports: [
     CommonModule,

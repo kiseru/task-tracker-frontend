@@ -28,4 +28,8 @@ export class TasksService {
   editTaskStatus(taskId: number, status: number): Observable<Task> {
     return this.http.patch<Task>(`${this.BASE_URL}${taskId}/`, { status });
   }
+
+  getTask(taskId: number): Observable<Task> {
+    return this.http.get<Task>(`${this.BASE_URL}${taskId}/`);
+  }
 }

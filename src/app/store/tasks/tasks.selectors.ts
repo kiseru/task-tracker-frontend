@@ -8,3 +8,5 @@ export const selectTasksError = createSelector(selectTasksState, state => state.
 export const selectTasksIsLoading = createSelector(selectTasksState, state => state.isLoading);
 
 export const selectTasks = createSelector(selectTasksState, (state) => state && state.tasks);
+
+export const selectTask = createSelector(selectTasksState, (state) => state && state.current);

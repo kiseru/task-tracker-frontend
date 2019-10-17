@@ -5,6 +5,7 @@ export interface TasksState {
   isLoading: boolean;
   error: any;
   filters: Partial<TaskFilters>;
+  current: Task;
 }
 
 export const initialState: TasksState = {
@@ -12,5 +13,6 @@ export const initialState: TasksState = {
   isLoading: false,
   error: null,
   filters: null,
+  current: null,
 };
 
