@@ -12,17 +12,20 @@ import {
   loadTasks,
   loadTasksFail,
   loadTasksSuccess,
-  loadTaskSuccess
+  loadTaskSuccess,
+  updateTask,
+  updateTaskFail,
+  updateTaskSuccess
 } from './tasks.actions';
 
 const tasksReducer = createReducer(
   initialState,
-  on(loadTasks, editTaskStatus, loadTask, createTask, (state) => ({
+  on(loadTasks, editTaskStatus, loadTask, createTask, updateTask, (state) => ({
     ...state,
     isLoading: true,
     error: null,
   })),
-  on(loadTasksFail, editTaskStatusFail, loadTaskFail, createTaskFail, (state, { error }) => ({
+  on(loadTasksFail, editTaskStatusFail, loadTaskFail, createTaskFail, updateTaskFail, (state, { error }) => ({
     ...state,
     error,
     isLoading: false,
@@ -32,7 +35,7 @@ const tasksReducer = createReducer(
     tasks,
     isLoading: false,
   })),
-  on(editTaskStatusSuccess, createTaskSuccess, (state) => ({
+  on(editTaskStatusSuccess, createTaskSuccess, updateTaskSuccess, (state) => ({
     ...state,
     isLoading: false,
   })),

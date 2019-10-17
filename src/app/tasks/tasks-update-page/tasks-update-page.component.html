@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Изменить задачу</h1>
+      <app-tasks-form
+        *ngIf="task$ | async as task"
+        [task]="task"
+        (submitForm)="submit($event)"
+      ></app-tasks-form>
+    </div>
+  </div>
+</div>

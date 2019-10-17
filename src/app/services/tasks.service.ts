@@ -36,4 +36,8 @@ export class TasksService {
   createTask(task: Task): Observable<Task> {
     return this.http.post<Task>(`${this.BASE_URL}`, task);
   }
+
+  updateTask(task: Task): Observable<Task> {
+    return this.http.patch<Task>(`${this.BASE_URL}${task.id}/`, task);
+  }
 }

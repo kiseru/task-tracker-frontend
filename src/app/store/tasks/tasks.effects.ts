@@ -40,4 +40,11 @@ export class TasksEffects {
       .pipe(tap(task => this.router.navigate(['/tasks', task.id])))
       .pipe(map(() => tasksActions.createTaskSuccess()))
       .pipe(catchError(error => of(tasksActions.createTaskFail({ error })))))));
+
+  updateTask$ = createEffect(() => this.actions$
+    .pipe(ofType(tasksActions.updateTask))
+    .pipe(switchMap(action => this.tasksService.updateTask(action.task)
+      .pipe(tap(task => this.router.navigate(['/tasks', task.id])))
+      .pipe(map(() => tasksActions.updateTaskSuccess()))
+      .pipe(catchError(error => of(tasksActions.updateTaskFail({ error })))))));
 }

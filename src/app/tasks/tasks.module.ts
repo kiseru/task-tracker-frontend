@@ -12,6 +12,8 @@ import { TaskPageComponent } from './task-page/task-page.component';
 import { TasksCreatePageComponent } from './tasks-create-page/tasks-create-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { TasksFormComponent } from './tasks-form/tasks-form.component';
+import { TasksUpdatePageComponent } from './tasks-update-page/tasks-update-page.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { SharedModule } from '../shared/shared.module';
     TaskCardComponent,
     TaskPageComponent,
     TasksCreatePageComponent,
+    TasksFormComponent,
+    TasksUpdatePageComponent,
   ],
   imports: [
     CommonModule,

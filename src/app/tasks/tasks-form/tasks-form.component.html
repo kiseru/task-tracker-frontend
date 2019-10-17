@@ -1,0 +1,44 @@
+<form [formGroup]="form" class="d-flex flex-column" (submit)="submit()">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Название" formControlName="name">
+    <mat-hint align="end">{{name.value.length}}/200</mat-hint>
+    <mat-error *ngIf="name.errors?.required">Поле не должно быть пустым</mat-error>
+    <mat-error *ngIf="name.errors?.maxlength">
+      Максимум {{name.errors?.maxlength.requiredLength}} символов.
+      У вас {{name.errors?.maxlength.actualLength}} символов.
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <textarea matInput placeholder="Описание" formControlName="description"></textarea>
+    <mat-error *ngIf="description.errors?.required">Поле не должно быть пустым</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Планируемое время" formControlName="estimation">
+    <mat-error *ngIf="estimation.errors?.required">Поле не должно быть пустым</mat-error>
+    <mat-error *ngIf="estimation.errors?.pattern">Должен быть вид hh:mm:ss</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Затраченное время" formControlName="spent_time">
+    <mat-error *ngIf="spentTime.errors?.pattern">Должен быть вид hh:mm:ss</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Приоритет" formControlName="priority">
+      <mat-option *ngFor="let priority of priorities" [value]="priority">{{priority | priority}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="priority.errors?.required">Поле не должно быть пустым</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Статус" formControlName="status">
+      <mat-option *ngFor="let status of statuses" [value]="status">{{status | status}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="status.errors?.required">Поле не должно быть пустым</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Сохранить</button>
+</form>
