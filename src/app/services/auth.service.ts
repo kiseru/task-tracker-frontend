@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Token } from '../entities/token';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { User } from '../entities/user';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,13 @@ export class AuthService {
 
   getAuthToken(): string {
     return this.cookieService.get(this.AUTH_TOKEN_COOKIE_KEY);
+  }
+
+  logout(): void {
+    this.cookieService.delete(this.AUTH_TOKEN_COOKIE_KEY);
+  }
+
+  getCurrentUser(): Observable<User> {
+    return this.http.get<User>(`${this.BASE_URL}me/`);
   }
 }

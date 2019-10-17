@@ -1,4 +1,11 @@
 <mat-toolbar color="primary" *ngIf="isShowing$ | async">
   <span>Task Tracker</span>
   <a routerLink="/tasks" mat-button class="ml-3">Мои задачи</a>
+  <div class="flex-grow-1"></div>
+  <button *ngIf="currentUser$ | async as currentUser" type="button" mat-button [mat-menu-trigger-for]="profileMenu">
+    {{currentUser.first_name}} {{currentUser.last_name}}
+  </button>
+  <mat-menu #profileMenu>
+    <button mat-menu-item (click)="logout()">Выйти</button>
+  </mat-menu>
 </mat-toolbar>

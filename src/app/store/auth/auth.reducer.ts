@@ -10,11 +10,10 @@ const authReducer = createReducer(
     isLoading: true,
     loginForm,
   })),
-  on(authActions.loginFail, (state, { error }) => ({
+  on(authActions.loginFail, authActions.loadCurrentUserFail, (state, { error }) => ({
     ...state,
     error,
     isLoading: false,
-    loginForm: initialState.loginForm,
   })),
   on(authActions.loginSuccess, (state) => ({
     ...state,
@@ -22,6 +21,20 @@ const authReducer = createReducer(
     isLoading: false,
     loginForm: initialState.loginForm
   })),
+  on(authActions.loadCurrentUser, (state) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(authActions.loadCurrentUserSuccess, (state, { user }) => ({
+    ...state,
+    isLoading: false,
+    user,
+  })),
+  on(authActions.logout, (state) => ({
+    ...state,
+    isLoading: false,
+    user: initialState.user,
+  }))
 );
 
 export function reducer(state: AuthState, action: Action): AuthState {

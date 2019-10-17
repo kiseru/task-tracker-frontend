@@ -25,5 +25,19 @@ export class AuthEffects {
     .pipe(tap(action => {
       this.authService.setAuthToken(action.token);
       this.router.navigateByUrl('/');
+    }))
+    .pipe(map(() => authActions.loadCurrentUser())));
+
+  loadCurrentUser$ = createEffect(() => this.actions$
+    .pipe(ofType(authActions.loadCurrentUser))
+    .pipe(switchMap(() => this.authService.getCurrentUser()
+      .pipe(map(user => authActions.loadCurrentUserSuccess({ user })))
+      .pipe(catchError(error => of(authActions.loadCurrentUserFail({ error })))))));
+
+  logout$ = createEffect(() => this.actions$
+    .pipe(ofType(authActions.logout))
+    .pipe(tap(() => {
+      this.authService.logout();
+      this.router.navigateByUrl('/auth');
     })), { dispatch: false });
 }
