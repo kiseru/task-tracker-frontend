@@ -31,7 +31,11 @@
       </div>
     </div>
 
-    <div class="col-9 tasks">
+    <div class="col-9 d-flex flex-column">
+      <div class="d-flex py-1">
+        <a routerLink="/tasks/new" mat-raised-button color="primary">Добавить задачу</a>
+      </div>
+
       <ng-container [ngSwitch]="viewType">
         <app-tasks-table *ngSwitchCase="'full'" [tasks]="tasks$ | async"></app-tasks-table>
         <app-tasks-table *ngSwitchCase="'short'" [tasks]="tasks$ | async" [isShortView]="true"></app-tasks-table>

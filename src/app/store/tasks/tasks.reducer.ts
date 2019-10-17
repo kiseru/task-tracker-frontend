@@ -1,6 +1,9 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { initialState, TasksState } from './tasks.state';
 import {
+  createTask,
+  createTaskFail,
+  createTaskSuccess,
   editTaskStatus,
   editTaskStatusFail,
   editTaskStatusSuccess,
@@ -14,12 +17,12 @@ import {
 
 const tasksReducer = createReducer(
   initialState,
-  on(loadTasks, (state) => ({
+  on(loadTasks, editTaskStatus, loadTask, createTask, (state) => ({
     ...state,
     isLoading: true,
     error: null,
   })),
-  on(loadTasksFail, (state, { error }) => ({
+  on(loadTasksFail, editTaskStatusFail, loadTaskFail, createTaskFail, (state, { error }) => ({
     ...state,
     error,
     isLoading: false,
@@ -29,26 +32,8 @@ const tasksReducer = createReducer(
     tasks,
     isLoading: false,
   })),
-  on(editTaskStatus, (state) => ({
+  on(editTaskStatusSuccess, createTaskSuccess, (state) => ({
     ...state,
-    isLoading: true,
-  })),
-  on(editTaskStatusFail, (state, { error }) => ({
-    ...state,
-    error,
-    isLoading: false,
-  })),
-  on(editTaskStatusSuccess, (state) => ({
-    ...state,
-    isLoading: false,
-  })),
-  on(loadTask, (state) => ({
-    ...state,
-    isLoading: true,
-  })),
-  on(loadTaskFail, (state, { error }) => ({
-    ...state,
-    error,
     isLoading: false,
   })),
   on(loadTaskSuccess, (state, { task }) => ({

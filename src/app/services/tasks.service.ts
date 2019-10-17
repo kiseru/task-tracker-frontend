@@ -32,4 +32,8 @@ export class TasksService {
   getTask(taskId: number): Observable<Task> {
     return this.http.get<Task>(`${this.BASE_URL}${taskId}/`);
   }
+
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(`${this.BASE_URL}`, task);
+  }
 }

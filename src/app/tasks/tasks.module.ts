@@ -7,8 +7,10 @@ import { TasksTableComponent } from './tasks-table/tasks-table.component';
 import { TasksKanbanComponent } from './tasks-kanban/tasks-kanban.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatCardModule, MatSelectModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatSelectModule, MatTableModule, MatToolbarModule } from '@angular/material';
 import { TaskPageComponent } from './task-page/task-page.component';
+import { TasksCreatePageComponent } from './tasks-create-page/tasks-create-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { TaskPageComponent } from './task-page/task-page.component';
     TasksKanbanComponent,
     TaskCardComponent,
     TaskPageComponent,
+    TasksCreatePageComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +30,9 @@ import { TaskPageComponent } from './task-page/task-page.component';
     MatCardModule,
     MatSelectModule,
     MatTableModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ]
 })
 export class TasksModule { }

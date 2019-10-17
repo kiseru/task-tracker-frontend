@@ -19,3 +19,9 @@ export const loadTaskFail = createAction('[Tasks] Load Task Fail', props<{ error
 
 export const loadTaskSuccess = createAction('[Tasks] Load Task Success', props<{ task: Task }>());
 
+export const createTask = createAction('[Tasks] Create Task', props<{ task: Task }>());
+
+export const createTaskFail = createAction('[Tasks] Create Task Fail', props<{ error: any }>());
+
+export const createTaskSuccess = createAction('[Tasks] Create Task Success');
+
