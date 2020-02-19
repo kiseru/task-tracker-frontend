@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "task-tracker-frontend"
+  "defaultProject": "task-tracker-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
